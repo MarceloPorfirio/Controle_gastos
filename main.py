@@ -25,18 +25,36 @@ class SpendingApp(ft.Container):
                         bgcolor=self.bg_color,
                         border_radius=10,
                         icon_enabled_color="transparent",
-                        text_style=ft.TextStyle(color='white')
+                        text_style=ft.TextStyle(color='white'),
+                        color='white',
+                        options=[
+                            ft.dropdown.Option('Dezembro'),
+                            ft.dropdown.Option('Janeiro'),
+                            ft.dropdown.Option('Fevereiro'),
+
+                        ]
                     ),
                     ft.Image(src="assets/face_port.png",height=40,width=40,border_radius=20)
                 ]
             )
         )   
 
+        self.title = ft.Container(
+            height=20, padding=0,
+            content=ft.Text(
+                value="6 de fevereiro de 2025, 15 de março de 2025",
+                color=ft.colors.with_opacity(0.5, 'white')
+            )
+        )
+
+
+
         self.page.add(
             ft.Column(
                 expand=True,scroll="auto",
                 controls=[
-                   self.header
+                   self.header,
+                   self.title
                 ]
             )
         )

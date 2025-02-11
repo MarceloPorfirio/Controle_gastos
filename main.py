@@ -9,7 +9,7 @@ class SpendingApp(ft.Container):
         self.blue_color = "#88ddfb"
         self.container_color = "#23243d"
         self.container2_color = "#484a66"
-
+        
         x_values = list(range(1,16))
         green_line = [1.2,1.5,2.0,8,3.2,5,2.0,2.5,5,10,2.1,4,2.0,6,1.7]
         red_line = [1.8,8,1.5,7,1.6,1.8,2.0,10,1.8,3,2.0,2.2,5,2.0,9]
@@ -22,25 +22,25 @@ class SpendingApp(ft.Container):
             data_series=[
                 ft.LineChartData(
                     data_points=[ft.LineChartDataPoint(x, y, selected=(x == 8)) for x, y in zip(x_values, green_line)],
-                    color=ft.colors.GREEN,
+                    color=ft.Colors.GREEN,
                     stroke_width=1,
                     curved=True,
-                    below_line_bgcolor=ft.colors.with_opacity(0.2, ft.colors.GREEN)
+                    below_line_bgcolor=ft.Colors.with_opacity(0.2, ft.Colors.GREEN)
                 ),
                 ft.LineChartData(
                     data_points=[ft.LineChartDataPoint(x, y, selected=(x == 8)) for x, y in zip(x_values, red_line)],
-                    color=ft.colors.RED,
+                    color=ft.Colors.RED,
                     stroke_width=1,
                     curved=True,
-                    below_line_bgcolor=ft.colors.with_opacity(0.2, ft.colors.RED)
+                    below_line_bgcolor=ft.Colors.with_opacity(0.2, ft.Colors.RED)
                 ),
             ],
             min_x=0,
             min_y=0,  # Ajustando o eixo Y para incluir os dados corretamente
             expand=True,
             border=ft.Border(
-                bottom=ft.BorderSide(1, ft.colors.with_opacity(0.3, ft.colors.WHITE)),
-                left=ft.BorderSide(1, ft.colors.with_opacity(0.3, ft.colors.WHITE))
+                bottom=ft.BorderSide(1, ft.colors.with_opacity(0.3, ft.Colors.WHITE)),
+                left=ft.BorderSide(1, ft.colors.with_opacity(0.3, ft.Colors.WHITE))
             ),
             bottom_axis=bottom_axis,
             left_axis=left_axis,
@@ -153,6 +153,36 @@ class SpendingApp(ft.Container):
             )
         )
 
+        self.row_3 = ft.Container(
+            height=150,
+            width=600,
+            border_radius=30,
+            bgcolor=self.container_color,
+            content=ft.Tabs(
+                selected_index=1,
+                animation_duration=300,
+                expand=True,
+                tabs=[
+                    ft.Tab(
+                        text='Todos',
+                        content=ft.Container(
+                            content=ft.Text("This is Tab 1"), alignment=ft.alignment.center
+                ),
+                    ),
+                    ft.Tab(
+                        text='Entradas',
+                        content=ft.Container(
+                            content=ft.Text("This is Tab 2"), alignment=ft.alignment.center
+                ),
+                    ),ft.Tab(
+                        text='Saídas',
+                        content=ft.Container(
+                            content=ft.Text("This is Tab 3"), alignment=ft.alignment.center
+                ),
+                    )
+                ],label_padding=ft.padding.symmetric(horizontal=50),
+            )
+        )
 
         self.page.add(
             ft.Column(
@@ -161,7 +191,8 @@ class SpendingApp(ft.Container):
                    self.header,
                    self.title,
                    self.row_1,
-                   self.row_2
+                   self.row_2,
+                   self.row_3
                 ]
             )
         )

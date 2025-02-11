@@ -53,21 +53,20 @@ class SpendingApp(ft.Container):
                     ft.IconButton(icon=ft.Icons.ARROW_BACK_IOS,icon_color='white'),
                     ft.Dropdown(
                         width=150,
-                        hint_text= "Mês Atual",
-                        hint_style=ft.TextStyle(color='white'),  # Define a cor do hint_text
+                        hint_text="Mês Atual",
+                        hint_style=ft.TextStyle(color="white"),
+                        text_style=ft.TextStyle(color="white"),  # Força a cor do texto
                         border_color=self.container2_color,
                         suffix_icon=ft.Icons.KEYBOARD_ARROW_DOWN,
                         bgcolor=self.bg_color,
                         border_radius=10,
                         icon_enabled_color="transparent",
-                        text_style=ft.TextStyle(color='white'),
-                        color='white',
+                        color="white",
                         options=[
-                            ft.dropdown.Option('Dezembro'),
-                            ft.dropdown.Option('Janeiro'),
-                            ft.dropdown.Option('Fevereiro'),
-
-                        ]
+                            ft.dropdown.Option("Dezembro"),
+                            ft.dropdown.Option("Janeiro"),
+                            ft.dropdown.Option("Fevereiro"),
+                        ],
                     ),
                     ft.Image(src="assets/face_port.png",height=40,width=40,border_radius=20)
                 ]
